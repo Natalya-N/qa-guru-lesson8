@@ -31,7 +31,8 @@ public class GitHubTests extends TestBase {
     @Tag("SMOKE")
     @ParameterizedTest(name = "В верхнем меню отображается заглавие выпадающего списка: {0}")
     void checkTopMenuTest(TopMenuList topMenuList) {
-        $x("button[contains(text(), ' " + topMenuList + " ')]").shouldHave(text(topMenuList.description));
+        $x("//button[contains(text(), '%s' )]".formatted(topMenuList.description))
+                .shouldHave(text(topMenuList.description));
     }
 
     @Tag("SMOKE")
